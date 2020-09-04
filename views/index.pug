@@ -1,0 +1,20 @@
+hr
+if users
+  table.table.table-striped
+    thead.thead-dark
+      th id
+      th Nombre
+      th Email
+      th Cumpleaños
+      th Edad
+    tbody    
+      each user in users
+        tr
+          td= user.id
+          td= user.name
+          td= user.mail
+          td= user.birthday.toLocaleDateString('es-AR')
+          td= user.age
+else
+  h3 No hay resultados      
+hr
