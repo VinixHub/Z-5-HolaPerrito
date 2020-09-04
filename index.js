@@ -1,14 +1,19 @@
-// index.js
 const express  = require('express');
 const mongoose = require('mongoose');
 
+// puerto y base de datos
 const port = process.env.PORT        || 3000;
 const db   = process.env.MONGODB_URI || 'mongodb://localhost/hellodb';
 
 const app = express();
+
 // set views
 app.set('view engine', 'pug');
 app.set('views', './views');
+
+// router
+const router = require('./routes/index');
+app.use('/', router);
 
 // conexion a la base de datos
 mongoose.set('useUnifiedTopology', true);
